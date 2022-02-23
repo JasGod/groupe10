@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center">{{magasin.nomMagasin}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-img *ngIf="!magasin.image" src="assets/image2.jpg"></ion-img>
+    <ion-img *ngIf="magasin.image" [src]="magasin.image"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>{{magasin.adresse}}</ion-card-subtitle>
+      <ion-card-title>Nos Produits</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item
+          *ngFor="let produit of produits"
+          (click)="presentAlertPrompt(produit)"
+        >
+          <ion-thumbnail
+            *ngIf="!produit.image"
+            slot="end"
+            style="height: 100px; width: 100px"
+          >
+            <ion-img
+              src="assets/store-56.jpg"
+              style="border-radius: 50%"
+            ></ion-img>
+          </ion-thumbnail>
+          <ion-thumbnail
+            *ngIf="produit.image"
+            slot="end"
+            style="height: 100px; width: 100px"
+          >
+            <ion-img [src]="produit.image" style="border-radius: 50%"></ion-img>
+          </ion-thumbnail>
+          <div>
+            <h3
+              style="font-weight: 600; font-size: 1.2em"
+              class="ion-text-center"
+            >
+              {{produit.nom}}
+            </h3>
+
+            <ion-chip> prix:{{produit.prix}} </ion-chip>
+            <ion-chip> stock:{{produit.stock}} </ion-chip>
+          </div>
+        </ion-item>
+        <hr />
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

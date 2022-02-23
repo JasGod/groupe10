@@ -1,0 +1,62 @@
+<ion-content>
+  <ion-slides mode="ios" pager="ios" scrollbar="ios" [options]="slideOpts">
+    <ion-slide class="img1"> </ion-slide>
+    <ion-slide class="img2"> </ion-slide>
+    <ion-slide class="img3"> </ion-slide>
+  </ion-slides>
+
+  <div>
+    <h2>POPINA MOBILE</h2>
+    <strong>Bienvenue</strong> à Popina mobile, application pour l'achat de
+    produits frais et variés. profitez un maxx!!🎉🎉<br />
+    <p>Ci-dessous retrouvez la liste des magasins.</p>
+  </div>
+
+  <ion-list *ngIf="load">
+    <ion-item
+      *ngFor="let magasin of magasins"
+      [routerLink]="['/detail-magasin', magasin.id]"
+    >
+      <ion-thumbnail
+        *ngIf="magasin.image"
+        slot="end"
+        style="height: 100px; width: 120px"
+      >
+        <ion-img [src]="magasin.image"></ion-img>
+      </ion-thumbnail>
+
+      <ion-thumbnail
+        *ngIf="!magasin.image"
+        slot="end"
+        style="height: 100px; width: 120px"
+      >
+        <ion-img src="assets/store-56.jpg"></ion-img>
+      </ion-thumbnail>
+      <div>
+        <h3 style="font-weight: 600; font-size: 1.5em" class="ion-text-center">
+          {{magasin.nomMagasin}}
+        </h3>
+        <ion-chip> {{magasin.adresse}} </ion-chip>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="!load">
+    <ion-item *ngFor="let item of [].constructor(5)">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

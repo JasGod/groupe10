@@ -1,0 +1,7 @@
+{
+  "name": "popina_mob",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

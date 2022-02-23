@@ -1,0 +1,50 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+ion-slides {
+  height: 35%;
+}
+
+.img1 {
+  background-image: url("../../../assets/grocery.jpg");
+}
+.img2 {
+  background-image: url("../../../assets/image2.jpg");
+}
+.img3 {
+  background-image: url("../../../assets/ouvrir-magasin-alimentaire-franchise.jpg");
+}
+
+h1 {
+  font-weight: 700;
+  color: rgb(216, 13, 13);
+}
+div {
+  text-align: center;
+  height: 130px;
+}
